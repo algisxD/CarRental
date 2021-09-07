@@ -1,0 +1,63 @@
+﻿@model AutoNuoma.Models.Arena
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Arenos šalinimas</h2>
+
+<h3>Ar tikrai norite pašalinti šia arena?</h3>
+<div>
+    <h4>Arena</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.pavadinimas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pavadinimas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.salis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.salis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.adresas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adresas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vietuSkaicius)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vietuSkaicius)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        @if (ViewBag.naudojama != null)
+        {
+            <h5 style="color:red">@ViewBag.naudojama</h5>
+        }
+        else
+        {
+            <input type="submit" value="Šalinti" class="btn btn-danger" />
+        }
+        @Html.ActionLink("Atgal į sąrašą", "Index", "Remejas", new { @class = "btn btn-default" })
+    </div>
+    }
+</div>

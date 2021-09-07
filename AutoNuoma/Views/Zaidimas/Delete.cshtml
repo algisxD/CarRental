@@ -1,0 +1,64 @@
+﻿@model AutoNuoma.Models.Zaidimas
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Zaidimo šalinimas</h2>
+
+<h3>Ar tikrai norite pašalinti šį zaidima?</h3>
+<div>
+    <h4>Zaidimas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.pavadinimas)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.pavadinimas)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zanras)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.zanras)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.versija)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.versija)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kurejas)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.kurejas)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        @if (ViewBag.naudojama != null)
+        {
+            <h5 style="color:red">@ViewBag.naudojama</h5>
+        }
+        else
+        {
+            <input type="submit" value="Šalinti" class="btn btn-danger" />
+        }
+        @Html.ActionLink("Atgal į sąrašą", "Index", "Zaidejas", new { @class = "btn btn-default" })
+    </div>
+    }
+</div>

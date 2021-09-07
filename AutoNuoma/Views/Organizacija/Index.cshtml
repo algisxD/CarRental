@@ -1,0 +1,42 @@
+﻿@model IEnumerable<AutoNuoma.Models.Organizacija>
+
+@{
+    ViewBag.Title = "Organizacijos";
+}
+
+<h2>Organizacijos</h2>
+
+<p>
+    @Html.ActionLink("Nauja organizacija", "Create", "Organizacija", new { @class="btn btn-success"})
+</p>
+<table class="table table-striped datatable">
+    <thead>
+    <tr style="background-color: lightblue">
+        <th>
+            @Html.DisplayNameFor(model => model.salis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pavadinimas)
+        </th>
+        <th style="wsalisth: 18%"></th>
+    </tr>
+        </thead>
+    <tbody>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.salis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pavadinimas)
+        </td>
+        <td>
+            @Html.ActionLink("Redaguoti", "Edit", new { id = item.id }, new { @class= "btn btn-primary action" }) 
+            @Html.ActionLink("Šalinti", "Delete", new { id = item.id }, new { @class= "btn btn-danger action" })
+        </td>
+    </tr>
+}
+        </tbody>
+
+</table>

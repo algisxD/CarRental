@@ -1,0 +1,54 @@
+﻿@model IEnumerable<AutoNuoma.ViewModels.RenginysViewModel>
+
+@{
+    ViewBag.Title = "Renginiai";
+}
+
+<h2>Renginiai</h2>
+
+<p>
+    @Html.ActionLink("Naujas renginys", "Create", "Renginys", new { @class = "btn btn-success" })
+</p>
+<table class="table table-striped datatable">
+    <thead>
+        <tr style="background-color: lightblue">
+            <th>
+                @Html.DisplayNameFor(model => model.pavadinimas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tipas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bilietoKaina)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.arena)
+            </th>
+            <th style="width: 18%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.pavadinimas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bilietoKaina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.arena)
+            </td>
+            <td>
+                @Html.ActionLink("Redaguoti", "Edit", new { id = item.id }, new { @class = "btn btn-primary action" })
+                @Html.ActionLink("Šalinti", "Delete", new { id = item.id }, new { @class = "btn btn-danger action" })
+            </td>
+        </tr>
+        }
+    </tbody>
+
+</table>
